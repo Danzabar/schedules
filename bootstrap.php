@@ -1,7 +1,24 @@
 <?php require_once __DIR__.'/vendor/autoload.php';
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+use Symfony\Component\Debug\Debug;
+
+/**
+ * Server Envrionment Settings
+ *
+ */
+require_once __DIR__.'/config/server.php';
+
+
+if(DEBUG)
+{
+	Debug::enable();
+}
+
+/**
+ *  Date time settings.
+ */
+date_default_timezone_set('Europe/London');
+
 
 /**
  * Aliases File

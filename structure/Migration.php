@@ -64,12 +64,14 @@ Class Migration
         $this->buildExclusions();
         
         $files = $this->finder->files()->in( dirname(__DIR__) . $this->dir);
-        
+		
+		$files->sortByName();
+
 		if(!empty($files))
         {
             foreach($files as $file)
             {            
-                $this->$direction($file);
+				$this->$direction($file);
             }
         }
     }
@@ -80,12 +82,13 @@ Class Migration
 	 */
     private function buildExclusions()
     {
-        
-        if(!empty($data))
+        $data = $this->getMigrations(); 
+				
+		if(!empty($data))
         {
             foreach($data as $d)
             {
-                $this->exclusions[] = $d->file;
+                $this->exclusions[] = $d['file'];
             }
         }
     }
@@ -138,13 +141,13 @@ Class Migration
 	private function addMigration($name)
 	{
 		$query = "INSERT INTO migrations(`file`, `ran_on`) VALUES (:file, :ran_on)";
-		Database::sql()->perform($query, ['file' => $name, 'ran_on' => date('Y-m-d H:i:s')]);
+		Database::sql()->query($query, ['file' => $name, 'ran_on' => date('Y-m-d H:i:s')]);
 	}
 
 	private function deleteMigration($name)
 	{
 		$query = "DELETE FROM migrations WHERE file = :file";
-		Database::sql()->perform($query, ['file' => $name]);
+		Database::sql()->query($query, ['file' => $name]);
 	}
 
 	private function getMigrations()

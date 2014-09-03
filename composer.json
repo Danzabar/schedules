@@ -9,6 +9,7 @@
 		"mockery/mockery": "dev-master",
 		"robclancy/schema-builder": "1.0.*@dev",
 		"symfony/http-foundation": "2.6.*@dev",
+		"symfony/debug": "2.6.*@dev",
 		"aura/router": "dev-develop-2"
 	},
 	"autoload": {	

@@ -8,6 +8,7 @@ $aliases = array(
 	"Schedules\Structure\Schema"		=> 'Schema',
 	"Schedules\Structure\Migration"		=> 'Migration',
 	"Schedules\Structure\Route"			=> 'Route',
+	"Schedules\Structure\URL"			=> 'URL',
 
 );
 

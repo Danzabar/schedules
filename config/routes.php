@@ -9,4 +9,5 @@
  *
  */
 Route::get('page.home', '/', 'PageController@home');
-Route::get('page.test', '/test-page/{id}/{avar}', 'PageController@test');
+Route::get('install', '/install', 'PageController@install');
+

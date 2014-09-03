@@ -1,6 +1,6 @@
 <?php
 
-Class Create_Schedule_Table
+Class Create_Schedules
 {
 	
 	public function up()
@@ -15,10 +15,8 @@ Class Create_Schedule_Table
 		});
 	}
 
-
 	public function down()
 	{
 		Schema::builder()->drop('schedules');
 	}
-
 }

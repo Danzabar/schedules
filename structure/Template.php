@@ -59,6 +59,6 @@ Class Template
 	{
 		$temp = new Template;
 
-		return $temp->render($template, $assocArr);
+		echo $temp->render($template, $assocArr);
 	}
 }

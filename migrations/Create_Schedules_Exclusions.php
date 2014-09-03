@@ -1,6 +1,6 @@
 <?php
 
-Class Create_Schedule_Exclusions_Table
+Class Create_Schedules_Exclusions
 {
 	
 	public function up()
@@ -13,10 +13,10 @@ Class Create_Schedule_Exclusions_Table
 			$table->string('day');
 			$table->text('times');
 			$table->timestamps();
-
-			$table->foreign('schedule_id')->references('id')->on('schedules')->onUpdate('cascade')->onDelete('cascade');
+			
+			$table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade')->onUpdate('cascade');
 		});
-	}	
+	}
 
 	public function down()
 	{

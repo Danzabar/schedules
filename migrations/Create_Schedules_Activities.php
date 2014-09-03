@@ -1,6 +1,6 @@
 <?php
 
-Class Create_Schedule_Activities_Table
+Class Create_Schedules_Activities
 {
 	
 	public function up()
@@ -11,11 +11,12 @@ Class Create_Schedule_Activities_Table
 			$table->integer('schedule_id')->unsigned();
 			$table->string('label');
 			$table->string('day');
-			$table->text('times');
+			$table->integer('hours');
+			$table->text('times')->nullable();
 			$table->timestamps();
 
-			$table->foreign('schedule_id')->references('id')->on('schedules')->onUpdate('cascade')->onDelete('cascade');	
-		});	
+			$table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade')->onUpdate('cascade');
+		});
 	}
 
 	public function down()

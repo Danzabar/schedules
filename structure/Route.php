@@ -63,7 +63,7 @@ Class Route
 		else {
 				
 			// No matching route
-			throw new Exception('No matching routes found');
+			throw new \Exception('No matching routes found');
 
 		}	
 	}
