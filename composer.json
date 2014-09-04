@@ -10,7 +10,8 @@
 		"robclancy/schema-builder": "1.0.*@dev",
 		"symfony/http-foundation": "2.6.*@dev",
 		"symfony/debug": "2.6.*@dev",
-		"aura/router": "dev-develop-2"
+		"aura/router": "dev-develop-2",
+		"doctrine/orm": "*"
 	},
 	"autoload": {	
 		"psr-4": {

@@ -1,6 +1,7 @@
 <?php require_once __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Debug\Debug;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Server Envrionment Settings
@@ -12,6 +13,20 @@ require_once __DIR__.'/config/server.php';
 if(DEBUG)
 {
 	Debug::enable();
+}
+
+
+/**
+ * Load the Model Classes.
+ *
+ */
+$finder = new Finder();
+
+$finder->files()->in( __DIR__ .'/models');
+
+foreach($finder as $file)
+{
+	require_once($file->getRealPath());
 }
 
 /**
@@ -47,7 +62,7 @@ require_once __DIR__.'/config/routes.php';
  */
 $connection = require_once __DIR__.'/config/database.php';
 
-Database::connect($connection);
+DB::connect($connection);
 
 
 /**

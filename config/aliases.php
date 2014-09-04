@@ -3,10 +3,9 @@
 
 $aliases = array(
 	
-	"Schedules\Structure\Database"		=> 'Database',
+	"Schedules\Structure\Database"		=> 'DB',
 	"Schedules\Structure\Template"		=> 'Template',
 	"Schedules\Structure\Schema"		=> 'Schema',
-	"Schedules\Structure\Migration"		=> 'Migration',
 	"Schedules\Structure\Route"			=> 'Route',
 	"Schedules\Structure\URL"			=> 'URL',
 
