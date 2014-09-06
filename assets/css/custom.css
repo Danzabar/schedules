@@ -1,0 +1,124 @@
+/* 
+ * Link Boxes
+ *
+ */
+.link-box
+{
+	display:block;
+	padding:10px 25px 10px 25px;
+	border:1px solid rgb(220,220,200);
+	height:170px;
+}
+
+.link-box h3
+{
+	border-bottom:1px dashed rgb(255,255,255);
+}
+
+.link-box i
+{
+	font-size: 30px;
+	position: absolute;
+	right: 27px;
+}
+
+.link-box:hover
+{
+	text-decoration:none;
+}
+
+/**
+ * Blue Box
+ *
+ */
+.link-box-blue
+{
+	color:rgb(255,255,255);
+	background-color:rgb(31, 114, 190);
+}
+
+.link-box-blue:hover
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(17, 97, 170);
+}
+
+/**
+ * Green Box
+ *
+ */
+.link-box-green
+{
+	color:rgb(255,255,255);
+	background-color:rgb(38, 177, 88);
+}
+
+.link-box-green:hover
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(45, 158, 86);
+}
+
+/**
+ * Purple Box
+ *
+ */
+.link-box-purple
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(131, 87, 226);
+}
+
+.link-box-purple:hover
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(102, 53, 209);
+}
+
+/**
+ * Red Box
+ *
+ */
+.link-box-red
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(213, 66, 83);
+}
+
+.link-box-red:hover
+{
+	color:rgb(255, 255, 255);
+	background-color:rgb(209, 50, 69);
+}
+
+/**
+ * Black Box
+ *
+ */
+.link-box-black
+{
+	color:rgb(255,255,255);
+	background-color:rgb(26, 26, 26);
+}
+
+.link-box-black:hover
+{
+	color:rgb(255,255,255);
+	background-color:rgb(0,0,0);
+}
+
+/**
+ * Yellow Box
+ *
+ */
+.link-box-yellow
+{
+	color: rgb(83, 83, 83);
+	background-color: rgb(235, 218, 98);
+}
+
+.link-box-yellow:hover
+{
+	color: rgb(71, 69, 69);
+	background-color: rgb(255, 235, 92);
+}

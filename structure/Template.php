@@ -1,5 +1,7 @@
 <?php namespace Schedules\Structure;
 
+Use Schedules\Structure\Twig_Engine;
+use Symfony\Component\Templating\DelegatingEngine;
 use Symfony\Component\Templating\PhpEngine;
 use Symfony\Component\Templating\TemplateNameParser;
 use Symfony\Component\Templating\Loader\FilesystemLoader;
@@ -18,8 +20,9 @@ Class Template
 	 * An instance of the symfony file system loader class
 	 *
 	 */
-	protected $loader;
-	
+	protected $Php_loader;
+	protected $Twig_loader;
+
 	/**
 	 * An instance of the symfony PHP template engine.
 	 *
@@ -30,13 +33,17 @@ Class Template
 	public function __construct()
 	{
 		// Set up the base symfony classes	
-		$this->loader = new FileSystemLoader(TEMPLATES_DIRECTORY.'%name%.php');
+		$this->Php_loader = new FileSystemLoader(TEMPLATES_DIRECTORY.'%name%.php');
+		$this->Twig_loader = new \Twig_Loader_Filesystem(TEMPLATES_DIRECTORY.'/');
 
-		$this->template = new PhpEngine(new TemplateNameParser, $this->loader);
+		$this->template = new DelegatingEngine(array( 
+			new PhpEngine(new TemplateNameParser, $this->Php_loader),
+			new Twig_Engine($this->Twig_loader, array(dirname(__DIR__).'/storage/'))
+		));
 	
 		// Set the helpers for slots and assets.
-		$this->template->set(new AssetsHelper);
-		$this->template->set(new SlotsHelper);	
+		#$this->template->set(new AssetsHelper);
+		#$this->template->set(new SlotsHelper);	
 	}	
 
 

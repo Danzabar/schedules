@@ -26,5 +26,9 @@ Class Exclusion
 	 * @Column(type="json_array")
 	 */
 	public $times;
-
+	
+	/**
+	 * @ManyToOne(targetEntity="Schedule", inversedBy="exclusions") 
+	 */
+	private $schedules;
 }

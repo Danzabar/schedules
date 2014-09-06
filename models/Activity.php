@@ -32,5 +32,9 @@ Class Activity
 	 * @Column(type="json_array", nullable=TRUE)
 	 */
 	public $times;
-
+	
+	/**
+	 * @ManyToOne(targetEntity="Schedule", inversedBy="activity")
+	 */
+	private $schedules;
 }
