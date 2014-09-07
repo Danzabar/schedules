@@ -1,0 +1,63 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}All Schedules{% endblock %}
+
+{% block content %}
+	
+{% import "components/components.html" as component %}
+	<div class="col-md-12">
+		
+	
+		<div class="row">
+			
+			<div class="col-md-8">
+
+			{% if schedules|length > 0 %}
+			
+					
+				<div class="info-wrapper">
+						
+				<p class="text-center">Below is a list of your most up to date schedules, use the search bar to find more!</p>			
+
+				{% for schedule in schedules %}
+					
+					{% include('components/schedule.html')  %}
+
+				{% endfor %}
+
+				</div>
+
+					
+			{% else %}
+				
+				<h3>Oh Snap!</h3>
+				<hr />
+				<p>You dont current have any Schedules to use, Create One.</p>
+				<p>
+					<a href="{{ App('URL','route',['page.newSchedule'])  }}" class="btn btn-lg btn-block btn-default">Create a schedule</a>
+				</p>
+				
+			{% endif %}
+			
+			</div>
+
+			<div class="col-md-4">
+					
+				<div class="sidebar-component">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-search"></i></div>
+						<input type="text" name="search" id="search" class="search-bar form-control" placeholder="Search by schedule name" />
+					</div>
+				</div>
+				
+				{{ component.sideBarLinkBox('Create Schedule', 'fa-pencil', 'Create a new work schedule to make the most of your time', App('URL', 'route', ['page.newSchedule']), 'red')  }}
+
+				{{ component.sideBarLinkBox('Need Help?', 'fa-question-circle', 'Take a quick look at the docs to get the most out of this tool, it also contains information about custom options.', App('URL', 'route', ['page.docs']), 'black')  }}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}

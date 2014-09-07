@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="info-box info-box-{{ random(['red', 'green', 'blue', 'purple', 'black'])  }}">
+		<h2>{{ schedule.name }}</h2>
+			
+		<div>
+		{{ schedule.description  }}
+		</div>
+		<hr />
+			
+		<p><b>Exclusions</b>: {{ schedule.excludes().count()  }}</p>
+		<p><b>Activities</b>: {{ schedule.activities().count() }}</p>
+		<p><b>Updated at</b>: {{ schedule.updated_at|date('Y-m-d H:i:s') }}</p>
+
+		<div class="schedule-actions">
+			<hr />
+			<div class="btn-group">
+				<a href="#" class="btn btn-success"><i class="fa fa-exclamation-circle"></i> Add Exclusion</a>
+				<a href="#" class="btn btn-success"><i class="fa fa-plus-square"></i> Add Activity</a>
+				<a href="#" class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+				<a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Make Active</a>
+				<a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</a>
+			</div>
+		</div>
+	</div>
+</div>

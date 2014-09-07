@@ -2,17 +2,16 @@
 	"name":"Schedule Keeper",
 	"description":"Uses various packages to create a schedule keeper webplatform that you can generate and keep track of schedules with.",
 	"require": {
-		"aura/sql": "dev-master",
 		"danzabar/schedule": "dev-master",
 		"symfony/templating": "2.6.*@dev",
 		"symfony/finder": "2.6.*@dev",
 		"mockery/mockery": "dev-master",
-		"robclancy/schema-builder": "1.0.*@dev",
 		"symfony/http-foundation": "2.6.*@dev",
 		"symfony/debug": "2.6.*@dev",
 		"aura/router": "dev-develop-2",
 		"doctrine/orm": "*",
-		"twig/twig": "1.*"
+		"twig/twig": "1.*",
+		"symfony/validator": "2.6.*@dev"
 	},
 	"autoload": {	
 		"psr-4": {

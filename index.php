@@ -1,5 +1,7 @@
 <?php require_once __DIR__ . '/bootstrap.php';
 
+session_start();
+
 /**
  *
  * To get things started, we just call the Route classes Resolve method

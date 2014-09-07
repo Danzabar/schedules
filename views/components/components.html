@@ -1,0 +1,15 @@
+{% macro linkBox(header, icon, content, link, color) %}
+	<a href="{{ link|default('#') }}" class="link-box link-box-{{ color|default('purple') }}">
+		<i class="fa {{ icon }}"></i>
+		<h3>{{ header }}</h3>
+		<p>{{ content }}</p>
+	</a>
+{% endmacro %}
+
+{% macro sideBarLinkBox(header, icon, content, link, color) %}
+	{% import _self as box %}	
+	<div class="sidebar-component">
+		{{ box.linkBox(header, icon, content, link, color)  }}
+	</div>
+{% endmacro %}
+

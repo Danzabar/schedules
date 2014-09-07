@@ -2,10 +2,31 @@
 
 use Symfony\Component\Templating\EngineInterface;
 
+/**
+ * Twig Engine An interfacing class that we can pass to symfonys Delegating Engine.
+ *
+ * @package Framework
+ * @subpackage Structure
+ * @author Dan Cox
+ */
 Class Twig_Engine implements EngineInterface
 {
+	/**
+	 * An instance of the Twig environment
+	 *
+	 * @var object
+	 */		
 	protected $twig;
-
+	
+	/**
+	 * Loads the twig environment and adds custom functionality
+	 *
+	 * @param {object} $loader
+	 * @param {string} $cache_dir the directory for caching.  
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
 	public function __construct($loader, $cache_dir)
 	{
 		$this->twig = new \Twig_Environment($loader, $cache_dir);
@@ -13,6 +34,12 @@ Class Twig_Engine implements EngineInterface
 		$this->addFunctionality();
 	}
 		
+	/**
+	 * Render function as is requirement to interfacing class
+	 *
+	 * @return string
+	 * @author Dan Cox
+	 */
 	public function render($name, Array $parameters = Array())
 	{	
 		/**
@@ -22,6 +49,7 @@ Class Twig_Engine implements EngineInterface
 
 		return $this->twig->render($name, $parameters);
 	}
+
 		
 	public function exists($name)
 	{
@@ -42,8 +70,10 @@ Class Twig_Engine implements EngineInterface
 	}
 
 	/**
-	 * Adds custom functions to twig.
+	 * Used to bulk load functionality into twig engine
 	 *
+	 * @return void
+	 * @author Dan Cox
 	 */
 	private function addFunctionality()
 	{
@@ -51,8 +81,10 @@ Class Twig_Engine implements EngineInterface
 	}
 
 	/**
-	 * Functions.
+	 * App function, adds an App function to templates that allows the use of static classes.
 	 *
+	 * @return mixed
+	 * @author Dan Cox
 	 */
 	private function _function_App()
 	{

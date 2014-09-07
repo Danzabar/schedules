@@ -1,6 +1,8 @@
 <?php
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @Entity
@@ -16,6 +18,13 @@ Class Schedule
 	
 	/**
 	 * @Column(type="string", unique=TRUE)
+	 * @Assert\NotBlank(message="The name field is required")
+	 * @Assert\Length(
+	 * 		min=2, 
+	 * 		max=255,
+	 * 		minMessage="The name must be atleast {{ limit }} characters long"
+	 * 		maxMessage="The name must be no more than {{ limit  }} characters long"
+	 * )
 	 */
 	public $name;
 

@@ -1,0 +1,23 @@
+{% macro input(name, value, type, class) %}
+	<input type="{{ type|default('text')  }}" name="{{ name }}" id="{{ name }}" class="{{ class|default('form-control')  }}" value="{{ value|e }}" />
+{% endmacro %}
+
+{% macro textarea(name, value, class) %}
+	<textarea name="{{ name }}" id="{{ name }}" rows="10" class="{{ class|default('form-control') }}">{{ value }}</textarea>
+{% endmacro %}
+
+{% macro label(name, id, class) %}
+	<label for="{{ id }}" class="{{ class }}">{{ name }}</label>
+{% endmacro %}
+
+{% macro submit(value, class) %}
+	<input type="submit" class="{{ class|default('btn btn-lg btn-primary btn-block')  }}" name="{{ value|default('Submit') }}" id="{{ value|default('Submit') }}" value="{{ value|default('Submit') }}" />
+{% endmacro %}
+
+{% macro open(route, type) %}
+	<form action="{{ App('URL', 'route', [route]) }}" method="{{ type|default('POST') }}">
+{% endmacro %}
+
+{% macro close() %}
+	</form>
+{% endmacro %}

@@ -4,23 +4,28 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Just a wrapper around Doctrine ORM package.
+ * Database Class - Acts as an easy to use wrapper around Doctrine/ORM
  *
- *
+ * @package Framework
+ * @subpackage Structure
+ * @author Dan Cox
  */
 Class Database
 {
 
 	/**
-	 * The doctrine Entity Manager Class
-	 * 
-	 */	
+	 * EntityManager - instance of Doctrine/ORM/EntityManager
+	 *
+	 * @var object
+	 */		
 	protected static $entityManager;
 		
 
 	/**
-	 * Creates the entity Manager class which is the backbone of the database.
+	 * Use Doctrine to create a PDO mysql connection.
 	 *
+	 * @return void
+	 * @author Dan Cox
 	 */
 	public static function connect($params)
 	{
@@ -39,8 +44,14 @@ Class Database
 	}
 	
 	/**
-	 * Get the entire repository
+	 * Get entities from a repository
 	 *
+	 * @param $entity string
+	 * @param $limit integer
+	 * @param $offset integer
+	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function get($entity, $limit = NULL, $offset = 0)
 	{
@@ -48,8 +59,13 @@ Class Database
 	}
 
 	/**
-	 * Count records
+	 * Count the entities from a repository
 	 *
+	 * @param $entity string
+	 * @param $params assoc array
+	 *
+	 * @return integer
+	 * @author Dan Cox
 	 */
 	public static function count($entity, $params = Array())
 	{
@@ -69,8 +85,13 @@ Class Database
 	}
 
 	/**
-	 * Uses the entity Manager class to find a model
+	 * Finds a single entity based on its id.
 	 *
+	 * @param $entity string
+	 * @param $id mixed
+	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function find($entity, $id)
 	{
@@ -78,8 +99,16 @@ Class Database
 	}
 
 	/**
-	 * Find BY
+	 * Find By - finds entities from a repo by parameters
 	 *
+	 * @param $entity string
+	 * @param $params assoc array
+	 * @param $order array
+	 * @param $limit int
+	 * @param $offset int
+	 *
+	 * @return void
+	 * @author Dan Cox
 	 */
 	public static function findBy($entity, $params, $order = Array(), $limit = 100, $offset = 0)
 	{
@@ -87,8 +116,16 @@ Class Database
 	}
 
 	/**
-	 * Find One
+	 * Find one by, returns single entity based on parameters.
 	 *
+	 * @param $entity string
+	 * @param $params assoc array
+	 * @param $order array
+	 * @param $limit int
+	 * @param $offset int	
+	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function findOneBy($entity, $params, $order = Array(), $limit = 100, $offset = 0)
 	{
@@ -96,9 +133,10 @@ Class Database
 	}
 	
 	/**
-	 * Returns the instance of the entity Manager that was created
-	 * during connection.
+	 * Entity Manager, static function to pass around the active instance of the entity manager
 	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function entityManager()
 	{

@@ -17,8 +17,8 @@ Class PageController
 	public function schedules()
 	{
 		$schedules = DB::get('Schedule', 10);
-
-		return Template::make('pages/schedules', ['schedules', $schedules]);
+		
+		return Template::make('pages/schedules', ['schedules' =>  $schedules]);
 	}
 
 	public function docs()

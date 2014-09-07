@@ -5,9 +5,11 @@ $aliases = array(
 	
 	"Schedules\Structure\Database"		=> 'DB',
 	"Schedules\Structure\Template"		=> 'Template',
-	"Schedules\Structure\Schema"		=> 'Schema',
 	"Schedules\Structure\Route"			=> 'Route',
 	"Schedules\Structure\URL"			=> 'URL',
+	"Schedules\Structure\Redirect"		=> 'Redirect',
+	"Schedules\Structure\Session"		=> 'Session',
+	"Schedules\Structure\Input"			=> 'Input',
 
 );
 

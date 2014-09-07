@@ -2,28 +2,45 @@
 
 use Aura\Router\RouterFactory;
 use Symfony\Component\HttpFoundation\Request;
+use Schedules\Structure\Input;
 
 /**
- * Uses Aura/Router to do the grunt work, just acts as a wrapper around
- * it to make it easier to use and more accessible. 
+ * Route Class - A wrapper around Aura/Router.
  *
+ * @package Framework
+ * @subpackage Structure
+ * @author Dan Cox
  */
 Class Route
 {
 	
 	/**
-	 * An instance of Aura/Router
+	 * Router - Instance of Aura Router Class
 	 *
-	 */	
+	 * @var object
+	 */		
 	protected static $router;
 
 	/**
-	 * An instance of symfonys request component.
+	 * Request - Instance of Symfonys HTTP Request Class
 	 *
+	 * @var object
 	 */
 	protected static $request;
+	
+	/**
+	 * Current Routed object
+	 *
+	 * @var object
+	 */
+	protected static $current;
 
-
+	/**
+	 * Builds the required static objects for later use
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
 	public function __construct()
 	{
 		// Build Aura's Router	
@@ -35,29 +52,39 @@ Class Route
 	}
 	
 	/**
-	 *  Resolve, uses the request object and router to
-	 *  get the action involved for the current route.
+	 * The resolve function gets the current route object, it initializes the Input capture
+	 * and triggers the required controller based on the route config file.
 	 *
+	 * @return void
+	 * @author Dan Cox
 	 */
 	public static function resolve()
 	{
 		$route = static::$router->match(static::$request->getPathInfo(), $_SERVER);
-	
+		
+		Input::init(static::$request->request);
+		
+		// Load the old input if there
+		Input::loadOld();	
+
 		if($route)
 		{
 			$params = $route->params;
+			
+			// Set as the current route;
+			static::$current = $route;
 
 			$action = $params['action'];
 
 			unset($params['action']);
 
 			$controller = explode('@', $action);
-				
+
 			// Load the controller
 			require_once( dirname(__DIR__) . '/controllers/'.$controller[0].'.php'  );
 			
 			$class = new $controller[0]();
-
+			
 			call_user_func_array(array($class, $controller[1]), $params);
 		}
 		else {
@@ -69,28 +96,59 @@ Class Route
 	}
 
 	/**
-	 * The static methods to add a route,
-	 * this just adds a convience around the native functions
+	 * Get - Adds a GET route to the collection
 	 *
-	 */
+	 * @param $name string
+	 * @param $url string
+	 * @param $controller string
+	 *
+	 * @return void
+	 * @author Dan Cox	
+	 */		
 	public static function get($name, $url, $controller)
 	{
 		static::$router->addGet($name, $url)
 					   ->addValues(['action' => $controller]);
 	}
-	
+
+	/**
+	 * Post - adds a POST route to the collection
+	 *
+	 * @param $name string
+	 * @param $url string
+	 * @param $controller string
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
 	public static function post($name, $url, $controller)
 	{
 		static::$router->addPost($name, $url)
 					   ->addValues(['action' => $controller]);
 	}
 
+	/**
+	 * Put - Adds a PUT route to the collection
+	 * 
+	 * @param $name string
+	 * @param $url string
+	 * @param $controller string
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */		
 	public static function put($name, $url, $controller)
 	{
 		static::$router->addPut($name, $url)
 					   ->addValues(['action' => $controller]);
 	}
-
+	
+	/**
+	 * Delete - Adds a Delete route to the collection
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
 	public static function delete($name, $url, $controller)
 	{
 		static::$router->addDelete($name, $url)
@@ -98,17 +156,43 @@ Class Route
 	}
 
 	/**
-	 * To Always have access to the router, we put it as a static property
-	 * 
+	 * Gets the current route object
+	 *
+	 * @return object
+	 * @author Dan Cox
+	 */
+	public static function current()
+	{
+		return static::$current;
+	}	
+	
+	/**
+	 * Gets the current routes name, ie "page.home"
+	 *
+	 * @return string
+	 * @author Dan Cox
+	 */
+	public static function currentRouteName()
+	{
+		return static::$current->name;
+	}
+
+	/**
+	 * Gets the router object
+	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function router()
 	{
 		return static::$router;
 	}
-
+	
 	/**
-	 * Likewise with the router, we should have access to the request object.
+	 * Gets the request object
 	 *
+	 * @return object
+	 * @author Dan Cox
 	 */
 	public static function request()
 	{

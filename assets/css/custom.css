@@ -122,3 +122,64 @@
 	color: rgb(71, 69, 69);
 	background-color: rgb(255, 235, 92);
 }
+
+/**
+ * Info Boxes
+ *
+ */
+.info-wrapper
+{
+	padding: 10px 40px 10px 40px;
+	background-color: rgba(243, 243, 243, 0.36);
+	border: 1px solid rgb(228, 213, 213);
+	margin-bottom:20px;
+	border-radius:2px;
+}
+
+.info-box
+{
+	padding: 10px 20px 15px 20px;
+	margin: 20px 0px 20px 0px;
+	color: rgb(255,255,255);
+	border: 1px solid rgb(189, 189, 189);
+}
+
+.info-box-red
+{
+	background-color:rgb(228, 95, 127);
+}
+
+.info-box-purple
+{
+	background-color: rgb(149, 66, 189);
+}
+
+.info-box-green
+{
+	background-color: rgb(174, 214, 88);
+}
+
+.info-box-blue
+{
+	background-color: rgb(135, 145, 218);
+}
+
+.info-box-black
+{
+	background-color: rgb(60, 60, 60);
+}
+
+.info-box-yellow
+{
+	background-color: rgb(244, 255, 123);
+	color: rgb(233, 119, 114);
+}
+
+/**
+ * Sidebar
+ *
+ */
+.sidebar-component
+{
+	margin-bottom:30px;
+}

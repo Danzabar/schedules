@@ -1,36 +1,26 @@
 {% extends "/templates/default.html" %}
 
 {% block content %}
+
+{% import "components/components.html" as component %}
 <div class="row">
 
 	<div class="col-md-3">
-		<a href="" class="link-box link-box-blue">
-			<i class="fa fa-calendar"></i>
-			<h3>Schedules available</h3>
-			{% if(schedules > 0) %}
-				<p>You currently have {{ schedules }} schedules available to use.</p>
-			{% else %}
-				<p>You havnt made any schedules yet, go make one.</p>
-			{% endif %}
-		</a>
+		{% if(schedules > 0) %}
+			{% set content = 'You currently have ' ~ schedules ~' available to use' %}
+		{% else %}
+			{% set content = 'You dont have any schedules, go make one!' %}
+		{% endif %}
+
+		{{ component.linkBox('Schedules available', 'fa-calendar', content, App('URL', 'route', ['page.schedules']), 'blue') }}
 	</div>
 
 	<div class="col-md-3">
-		
-		<a href="" class="link-box link-box-yellow">
-			<i class="fa fa-pencil"></i>
-			<h3>Create a new Schedule</h3>
-			<p>Create a new schedule and keep track of your progress.</p>
-		</a>
-
+		{{ component.linkBox('Create a new Schedule', 'fa-pencil', 'Create a new schedule and keep track of your progress', App('URL', 'route', ['page.newSchedule']), 'yellow')  }}
 	</div>
 
 	<div class="col-md-6">
-		<a href="" class="link-box link-box-purple">
-			<i class="fa fa-check-circle"></i>
-			<h3>Active Schedule</h3>
-			<p>You havent set an active schedule yet, making a schedule active will tell you what you should be doing currently.</p>
-		</a>	
+		{{ component.linkBox('Active Schedule', 'fa-check-circle', 'You havent set an active schedule yet, making a schedule active will tell you what you should be doing currently.', '') }}
 	</div>
 
 </div>
@@ -42,28 +32,16 @@
 	</div>
 		
 	<div class="col-md-3">
-		<a href="" class="link-box link-box-red">
-			<i class="fa fa-question-circle"></i>
-			<h3>Need Help?</h3>
-			<p>The docs will show you what you need to do to install this properly and get the most out of it.</p>
-		</a>
+		{{ component.linkBox('Need Help?', 'fa-question-circle', 'The docs will show you what you need to do to install this properly and get the most out of it', App('URL', 'route', ['page.docs']), 'red')  }}
 	</div>
 
 	<div class="col-md-6">
-		<a href="" class="link-box link-box-black">
-			<i class="fa fa-git"></i>
-			<h3>Like this tool? Contribute!</h3>
-			<p>Take a trip to our git repository and help make this tool better for everyone.</p>
-		</a>
+		{{ component.linkBox('Like this tool? Contribute!', 'fa-git', 'Take a trip to our git repo and help make this tool better for everyone', '#', 'black')  }}
 	</div>
 	
 	
 	<div class="col-md-3">
-		<a href="" class="link-box link-box-green">
-			<i class="fa fa-group"></i>
-			<h3>What we use</h3>
-			<p>A list of external components and tools that we use and contributor list.</p>
-		</a>
+		{{ component.linkBox('What we use', 'fa-group', 'A list of external components and tools that we use and contributor list', '#', 'green')  }}
 	</div>
 
 

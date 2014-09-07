@@ -14,7 +14,7 @@ Route::get('page.docs', '/documentation', 'PageController@docs');
 
 
 /**
- * Schedule Creation Routes
+ * Schedule Interaction Routes
  *------------------------------------------------
  *
  */
