@@ -72,7 +72,20 @@ Class Session
 
 		$_SESSION['framework'][$key] = $value;	
 	}
-
+	
+	/**
+	 * Removes session values by key
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public static function remove($key)
+	{
+		if(self::has($key))
+		{
+			unset($_SESSION['framework'][$key]);
+		}
+	}
 
 	/**
 	 * Encodes a value

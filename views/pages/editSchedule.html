@@ -1,0 +1,25 @@
+{% extends "templates/default.html" %}
+
+{% block title %}Edit {{ schedule.name }}{% endblock %}
+{% block pagetitle %}Edit {{ schedule.name }}{% endblock %}
+
+
+{% block content %}
+
+{% import "components/components.html" as component %}
+
+	<div class="row">
+		
+		<div class="col-md-8">
+
+		</div>
+
+		<div class="col-md-4">
+			
+				{{ component.sideBarLinkBox('Create exclusions', 'fa-exclamation-triangle', 'You can create excludes for schedules. You currently have '~ schedule.excludes().count ~' set up.', '#', 'blue') }}
+
+		</div>
+
+	</div>
+
+{% endblock %}

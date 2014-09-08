@@ -61,6 +61,19 @@ Class Redirect
 		
 		return $this;
 	}
+
+	/**
+	 * Loads errors into the session for the redirect
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public function withErrors($errors)
+	{
+		Session::set('errors', $errors);
+
+		return $this;
+	}
 	
 	/**
 	 * Send - completes the redirect, must be called at the end of the chain to perform redirect.

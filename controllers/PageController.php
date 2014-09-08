@@ -16,7 +16,7 @@ Class PageController
 	
 	public function schedules()
 	{
-		$schedules = DB::get('Schedule', 10);
+		$schedules = DB::get('Schedule', ['updated_at' => 'DESC'], 10);
 		
 		return Template::make('pages/schedules', ['schedules' =>  $schedules]);
 	}
@@ -29,6 +29,13 @@ Class PageController
 	public function newSchedule()
 	{
 		return Template::make('pages/newSchedule');
+	}
+
+	public function editSchedule($id)
+	{
+		$schedule = DB::find('Schedule', $id);
+
+		return Template::make('pages/editSchedule', ['schedule' => $schedule]);
 	}
 
 	public function addExcludes($id)

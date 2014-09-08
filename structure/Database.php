@@ -53,9 +53,9 @@ Class Database
 	 * @return object
 	 * @author Dan Cox
 	 */
-	public static function get($entity, $limit = NULL, $offset = 0)
+	public static function get($entity, $orderBy = Array(), $limit = NULL, $offset = 0)
 	{
-		return static::$entityManager->getRepository($entity)->findBy(array(), array(), $limit, $offset);
+		return static::$entityManager->getRepository($entity)->findBy(array(), $orderBy, $limit, $offset);
 	}
 
 	/**
@@ -132,6 +132,32 @@ Class Database
 		return static::$entityManager->getRespository($entity)->findOneBy($params, $order, $limit, $offset);
 	}
 	
+	/**
+	 * Save, uses the entity manager to save the changes to an entity
+	 *	
+	 * @param {object} $entity the edited entity
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public static function save($entity)
+	{
+		static::$entityManager->persist($entity);
+		static::$entityManager->flush();
+	}
+
+	/**
+	 * Deletes row by entity
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public static function delete($entity)
+	{
+		static::$entityManager->remove($entity);
+		static::$entityManager->flush();
+	}
+
 	/**
 	 * Entity Manager, static function to pass around the active instance of the entity manager
 	 *

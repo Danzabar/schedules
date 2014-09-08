@@ -1,0 +1,27 @@
+{% macro alert(class, content) %}
+	<div class="alert alert-{{ class }} alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert">
+			<span aria-hidden="true">&times;</span>
+			<span class="sr-only">Close</span>
+		</button>
+		<p class="text-center">{{ content }}</p>
+	</div>
+{% endmacro %}
+
+{% import _self as alert %}
+
+{% for error in errors %}
+	
+	{{ alert.alert('danger', error.message) }}
+
+{% endfor %}
+
+{% if App('Session', 'has', ['success']) %}
+	
+	{{ alert.alert('success', App('Session', 'get', ['success'])) }}
+	
+	{{ App('Session', 'remove', ['success'])  }}
+
+{% endif %}
+
+

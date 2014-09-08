@@ -85,6 +85,13 @@ Class Template
 	 */
 	public function render($template, $assocArr = [])
 	{	
+		// If the session has errors, load these as variables
+		if(Session::has('errors'))
+		{
+			$assocArr = array_merge($assocArr, array('errors' => Session::get('errors')));
+			Session::remove('errors');
+		}
+
 		return $this->template->render($template, $assocArr);
 	}
 

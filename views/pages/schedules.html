@@ -18,12 +18,13 @@
 				<div class="info-wrapper">
 						
 				<p class="text-center">Below is a list of your most up to date schedules, use the search bar to find more!</p>			
-
-				{% for schedule in schedules %}
+				<div class="list-group">
+					{% for schedule in schedules %}
 					
-					{% include('components/schedule.html')  %}
+						{% include('components/schedule.html')  %}
 
-				{% endfor %}
+					{% endfor %}
+				</div>
 
 				</div>
 

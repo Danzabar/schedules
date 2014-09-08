@@ -2,7 +2,7 @@
 
 
 $aliases = array(
-	
+		
 	"Schedules\Structure\Database"		=> 'DB',
 	"Schedules\Structure\Template"		=> 'Template',
 	"Schedules\Structure\Route"			=> 'Route',
@@ -10,6 +10,7 @@ $aliases = array(
 	"Schedules\Structure\Redirect"		=> 'Redirect',
 	"Schedules\Structure\Session"		=> 'Session',
 	"Schedules\Structure\Input"			=> 'Input',
+	"Schedules\Structure\Validator"		=> 'Validator',
 
 );
 
