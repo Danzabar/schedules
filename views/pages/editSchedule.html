@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="col-md-4">
-			
+				{{ component.sideBarLinkBox('Schedules', 'fa-calendar', 'Go back and interact with your schedule list', Route('page.schedules'), 'blue')  }}	
 				{{ component.sideBarLinkBox('Create exclusions', 'fa-exclamation-triangle', 'You can create excludes for schedules. You currently have '~ schedule.excludes().count ~' set up.', '#', 'black') }}
 
 		</div>

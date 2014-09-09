@@ -1,6 +1,5 @@
 <?php
 
-use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -41,6 +40,17 @@ Class Activity
 	 * @ManyToOne(targetEntity="Schedule", inversedBy="activity")
 	 */
 	private $schedules;
+	
+	/**
+	 * Returns the schedules collection
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public function schedules()
+	{
+		return $this->schedules;
+	}
 
 	/**
 	 * The validation rules for this model.

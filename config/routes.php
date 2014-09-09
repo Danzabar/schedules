@@ -39,7 +39,7 @@ Route::post('post.addExcludes', '/schedule/excludes/{id}', 'ExcludeController@ad
  */
 Route::get('page.addActivities', '/schedule/activities/{id}/new', 'PageController@addActivities');
 Route::get('page.activities', '/schedule/activities/{id}', 'PageController@activities');
-Route::get('page.deleteActivities', '/schedule/activities/{id}/{schedule_id}/delete', 'ActivityController@delete');
+Route::get('page.deleteActivities', '/schedule/activities/{id}/delete', 'ActivityController@delete');
 Route::get('page.editActivities', '/schedule/activities/{id}/edit', 'PageController@editActivities');
 
 Route::post('post.addActivities', '/schedule/activities/{id}', 'ActivityController@addActivities');

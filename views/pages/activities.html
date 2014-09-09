@@ -21,6 +21,7 @@
 				
 		</div>
 		<div class="col-md-4">
+			{{ components.sideBarLinkBox('Create Activities', 'fa-pencil', 'Create more activities', Route('page.addActivities', {'id':schedule.id}), 'green')}}
 			{{ components.sideBarLinkBox('Schedules', 'fa-calendar', 'Find and create schedules', Route('page.schedules'), 'red') }}
 			{{ components.sideBarLinkBox('Like This Tool?', 'fa-git', 'This software is open source, make it better by contributing.', '#', 'black') }}
 		</div>

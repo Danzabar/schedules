@@ -51,12 +51,12 @@ class ActivityController
 	 * @return Redirect
 	 * @author Dan Cox
 	 */
-	public function delete($id, $schedule_id)
+	public function delete($id)
 	{
 		$activity = DB::find('Activity', $id);
 		DB::delete($activity);
 
-		return Redirect::route('page.activities', ['id' => $schedule_id])
+		return Redirect::route('page.activities', ['id' => $activity->schedules()->id])
 					->with('success', 'Removed activity from schedule')
 					->send();
 	}
