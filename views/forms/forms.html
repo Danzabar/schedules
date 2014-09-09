@@ -6,6 +6,31 @@
 	<textarea name="{{ name }}" id="{{ name }}" rows="10" class="{{ class|default('form-control') }}">{{ value }}</textarea>
 {% endmacro %}
 
+{% macro select(name, value, options) %}
+	<select name="{{ name }}" id="{{ name }}" class="form-control">
+		<option value="">Select one</option>
+		{% for key,option in options %}
+			<option {{ (value in option ? 'selected="selected"' : '') }}  value="{{ option }}">{{ key }}</option>
+		{% endfor %}
+	</select>
+{% endmacro %}
+
+{% macro daySelect(name, value) %}
+	{% import _self as form %}
+	{{ form.select(name, value, {
+		"Everyday":"Everyday",
+		"Weekday":"Weekday",
+		"Weekend":"Weekend",
+		"Monday":"Monday",
+		"Tuesday":"Tuesday",
+		"Wednesday":"Wednesday",
+		"Thursday":"Thursday",
+		"Friday":"Friday",
+		"Saturday":"Saturday",
+		"Sunday":"Sunday"
+	   }) }}
+{% endmacro %}
+
 {% macro label(name, id, class) %}
 	<label for="{{ id }}" class="{{ class }}">{{ name }}</label>
 {% endmacro %}
@@ -14,8 +39,8 @@
 	<input type="submit" class="{{ class|default('btn btn-lg btn-primary btn-block')  }}" name="{{ value|default('Submit') }}" id="{{ value|default('Submit') }}" value="{{ value|default('Submit') }}" />
 {% endmacro %}
 
-{% macro open(route, type) %}
-	<form action="{{ App('URL', 'route', [route]) }}" method="{{ type|default('POST') }}">
+{% macro open(route, params, type) %}
+<form action="{{ App('URL', 'route', [route, params|default([])]) }}" method="{{ type|default('POST') }}">
 {% endmacro %}
 
 {% macro close() %}

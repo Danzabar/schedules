@@ -1,0 +1,36 @@
+{% import "forms/forms.html" as form %}
+
+
+{{ form.open('post.addActivities', {"id":schedule.id}) }}
+	
+	<div class="form-group">
+		{{ form.label('Activity name', 'label') }}
+		{{ form.input('label', Input('label')) }}
+	</div>
+
+	<div class="form-group">
+		{{ form.label('Hours', 'hours') }}
+		{{ form.input('hours', Input('hours')) }}
+		<p class="small">Enter the amount of hours you wish to spend on this activity.</p>
+	</div>
+	
+	<h3 class="form-title">Set an explicit time</h3>
+	
+	<p>You can manually set when you want your activity to run, instead of setting the amount of hours.</p>
+
+	<div class="form-group">
+		{{ form.label('Day', 'day') }}
+		{{ form.daySelect('day', Input('day')) }}
+	</div>
+
+	<div class="form-group">
+		{{ form.label('Set explicit times', 'times') }}
+		{{ form.input('times', Input('times'))  }}
+		<p class="small">Seperate times with a comma and equals to denote time ranges, for example "17:00 = 18:00, 21:00"</p>			
+	</div>
+	
+	<div class="form-group">
+		{{ form.submit('Add activity', 'btn btn-lg btn-danger btn-block') }}
+	</div>
+
+{{ form.close()  }}

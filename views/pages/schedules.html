@@ -35,7 +35,7 @@
 				<hr />
 				<p>You dont current have any Schedules to use, Create One.</p>
 				<p>
-					<a href="{{ App('URL','route',['page.newSchedule'])  }}" class="btn btn-lg btn-block btn-default">Create a schedule</a>
+					<a href="{{ Route('page.newSchedule')  }}" class="btn btn-lg btn-block btn-default">Create a schedule</a>
 				</p>
 				
 			{% endif %}
@@ -51,9 +51,9 @@
 					</div>
 				</div>
 				
-				{{ component.sideBarLinkBox('Create Schedule', 'fa-pencil', 'Create a new work schedule to make the most of your time', App('URL', 'route', ['page.newSchedule']), 'red')  }}
+				{{ component.sideBarLinkBox('Create Schedule', 'fa-pencil', 'Create a new work schedule to make the most of your time', Route('page.newSchedule'), 'red')  }}
 
-				{{ component.sideBarLinkBox('Need Help?', 'fa-question-circle', 'Take a quick look at the docs to get the most out of this tool, it also contains information about custom options.', App('URL', 'route', ['page.docs']), 'black')  }}
+				{{ component.sideBarLinkBox('Need Help?', 'fa-question-circle', 'Take a quick look at the docs to get the most out of this tool, it also contains information about custom options.', Route('page.docs'), 'black')  }}
 
 			</div>
 

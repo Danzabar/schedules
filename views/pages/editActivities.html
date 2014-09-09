@@ -1,0 +1,26 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}Edit Activity - {{ activity.label }} {% endblock %}
+{% block title %} Edit Activity {% endblock %}
+
+{% block content %}
+
+{% import "components/components.html" as component %}
+	<div class="row">
+		
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Edit activity {{ activity.label }}</h3>
+				</div>
+				<div class="panel-body">
+					{% include "forms/editActivity.html" %}
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+		</div>
+	</div>
+	
+{% endblock %}

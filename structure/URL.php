@@ -8,7 +8,8 @@
  * @author Dan Cox
  */
 Class URL
-{
+{			
+		
 
 	/**
 	 * Asset, returns the full url for an asset

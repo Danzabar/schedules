@@ -1,0 +1,19 @@
+{% import "forms/forms.html" as form %}
+
+{{ form.open('post.editSchedule', {'id':schedule.id}) }}
+	
+	<div class="form-group">
+		{{ form.label('Name', 'name') }}
+		{{ form.input('name', schedule.name)  }}
+	</div>
+
+	<div class="form-group">
+		{{ form.label('Description', 'description') }}
+		{{ form.textarea('description', schedule.description) }}
+	</div>
+
+	<div class="form-group">
+		{{ form.submit('Edit') }}
+	</div>		
+
+{{ form.close() }}

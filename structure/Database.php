@@ -30,7 +30,7 @@ Class Database
 	public static function connect($params)
 	{
 			
-		$config = Setup::createAnnotationMetadataConfiguration( [dirname(__DIR__). '/models/'], false);
+		$config = Setup::createAnnotationMetadataConfiguration( [dirname(__DIR__). '/models/'], true);
 		
 		static::$entityManager = EntityManager::create(
 			[

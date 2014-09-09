@@ -26,10 +26,10 @@ Class Redirect
 	 * @return object
 	 * @author Dan Cox
 	 */
-	public function addRoute($name)
+	public function addRoute($name, $params = Array())
 	{	
 		// Save the generated url to the route;
-		$this->route = URL::route($name);
+		$this->route = URL::route($name, $params);
 		
 		return $this;
 	}
@@ -98,10 +98,10 @@ Class Redirect
 	 * @return object
 	 * @author Dan Cox
 	 */
-	public static function route($route)
+	public static function route($route, $params = Array())
 	{
 		$redirect = new Redirect;
-		$redirect->addRoute($route);
+		$redirect->addRoute($route, $params);
 
 		return $redirect;
 	}

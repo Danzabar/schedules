@@ -1,0 +1,31 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}Add Activity{% endblock %}
+{% block title %}Add activity{% endblock %}
+
+{% block content %}
+{% import "components/components.html" as component %}
+
+	<div class="row">
+		
+		<div class="col-md-8">
+			
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title">Add Activity to {{ schedule.name }} schedule</h3>
+				</div>
+				<div class="panel-body">
+					{% include "forms/addActivity.html" %}
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="col-md-4">
+				{{ component.sideBarLinkBox('Activities', 'fa-plus', 'See your current activities for this schedule', Route('page.activities', {'id': schedule.id}), 'green') }}
+				{{ component.sideBarLinkBox('Need Help?', 'fa-question', 'Make the most of this tool, the docs can help achieve this.', Route('page.docs'), 'black') }}
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -19,11 +19,28 @@ Route::get('page.docs', '/documentation', 'PageController@docs');
  *
  */
 Route::get('page.newSchedule', '/schedule/new', 'PageController@newSchedule');
-Route::get('page.addExcludes', '/schedule/excludes/{id}', 'PageController@addExcludes');
-Route::get('page.addActivities', '/schedule/activities/{id}', 'PageController@addActivities');
 Route::get('page.editSchedule', '/schedule/edit/{id}', 'PageController@editSchedule');
 Route::get('page.deleteSchedule', '/schedule/delete/{id}', 'ScheduleController@deleteSchedule');
 
 Route::post('post.newSchedule', '/schedule/new', 'ScheduleController@newSchedule');
-Route::post('post.addExcludes', '/schedule/excludes/{id}', 'ScheduleController@addExcludes');
-Route::post('post.addActivities', '/schedule/activities/{id}', 'ScheduleController@addActivities');
+Route::post('post.editSchedule', '/schedule/edit/{id}', 'ScheduleController@editSchedule');
+
+/**
+ * Exclude Routes
+ * -----------------------------------------------
+ */
+Route::get('page.addExcludes', '/schedule/excludes/{id}', 'PageController@addExcludes');
+
+Route::post('post.addExcludes', '/schedule/excludes/{id}', 'ExcludeController@addExcludes');
+
+/**
+ * Activity Routes
+ * -----------------------------------------------
+ */
+Route::get('page.addActivities', '/schedule/activities/{id}/new', 'PageController@addActivities');
+Route::get('page.activities', '/schedule/activities/{id}', 'PageController@activities');
+Route::get('page.deleteActivities', '/schedule/activities/{id}/{schedule_id}/delete', 'ActivityController@delete');
+Route::get('page.editActivities', '/schedule/activities/{id}/edit', 'PageController@editActivities');
+
+Route::post('post.addActivities', '/schedule/activities/{id}', 'ActivityController@addActivities');
+Route::post('post.editActivities', '/schedule/activities/{id}/edit', 'ActivityController@editActivities');

@@ -37,12 +37,12 @@ Class Schedule
 	public $updated_at;
 
 	/**
-	 * @OneToMany(targetEntity="Exclusion", mappedBy="schedules", fetch="EXTRA_LAZY")
+	 * @OneToMany(targetEntity="Exclusion", mappedBy="schedules", fetch="EXTRA_LAZY", cascade={"all"})
 	 */
 	private $excludes;
 
 	/**
-	 * @OneToMany(targetEntity="Activity", mappedBy="schedules", fetch="EXTRA_LAZY")
+	 * @OneToMany(targetEntity="Activity", mappedBy="schedules", fetch="EXTRA_LAZY", cascade={"all"})
 	 */
 	private $activities;
 

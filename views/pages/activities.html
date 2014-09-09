@@ -1,0 +1,29 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}View all activities for {{ schedule.name }}{% endblock %}
+
+{% block content %}
+	
+{% import "components/components.html" as components %}
+	<div class="row">
+		
+		<div class="col-md-8">
+			
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Activities</h3>
+				</div>
+				<div class="panel-body">
+					<p>Below are your activities for this schedule.</p>
+				</div>
+				{% include "components/activities.html" %}
+			</div>
+				
+		</div>
+		<div class="col-md-4">
+			{{ components.sideBarLinkBox('Schedules', 'fa-calendar', 'Find and create schedules', Route('page.schedules'), 'red') }}
+			{{ components.sideBarLinkBox('Like This Tool?', 'fa-git', 'This software is open source, make it better by contributing.', '#', 'black') }}
+		</div>
+	</div>
+
+{% endblock %}

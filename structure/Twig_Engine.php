@@ -78,6 +78,8 @@ Class Twig_Engine implements EngineInterface
 	private function addFunctionality()
 	{
 		$this->twig->addFunction($this->_function_App());
+		$this->twig->addFunction($this->_function_Route());
+		$this->twig->addFunction($this->_function_Input());
 	}
 
 	/**
@@ -96,6 +98,34 @@ Class Twig_Engine implements EngineInterface
 			}				
 
 			throw new \Exception("Undefined Class called in template, Either $class doesnt exist or $method doesnt exist on the class");
+		});
+	}
+
+	/**
+	 * Adds the route function to twig templating language
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	private function _function_Route()
+	{
+		return new \Twig_SimpleFunction('Route', function($page, $params = Array())
+		{
+			return URL::route($page, $params);
+		});
+	}
+
+	/**
+	 * Gets the old input that can be used in the twig templating language
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	private function _function_Input()
+	{
+		return new \Twig_SimpleFunction('Input', function($key)
+		{
+			return Input::old($key);
 		});
 	}
 }
