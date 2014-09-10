@@ -6,8 +6,9 @@
 	</div>
 	<hr />
 			
-	<p><b>Exclusions</b>: {{ schedule.excludes().count()  }}</p>
-	<p><b><a href="{{ App('URL', 'route', ['page.activities', {'id':schedule.id}]) }}">Activities</a></b>: {{ schedule.activities().count() }}</p>
+	<p><a href="{{ Route('page.excludes', {'id': schedule.id}) }}"><b>Exclusions</b></a>: {{ schedule.excludes().count()  }}</p>
+
+	<p><b><a href="{{ Route('page.activities', {'id':schedule.id}) }}">Activities</a></b>: {{ schedule.activities().count() }}</p>
 	<p><b>Updated at</b>: {{ schedule.updated_at|date('Y-m-d H:i:s') }}</p>
 
 	<div class="schedule-actions">

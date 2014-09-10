@@ -81,7 +81,7 @@ Class Activity
 	 */
 	public function isOptionSelected()
 	{
-		return ($this->hours > 0 || ($this->day != '' && $this->times != ''));
+		return ($this->hours > 0 || (!empty($this->day) && !empty($this->times)));
 	}
 	
 	/**
@@ -199,15 +199,48 @@ Class Activity
 	}
 
 	/**
+	 * Returns the time in the format they go into the form in.
+	 *
+	 * @return Times
+	 * @author Dan Cox
+	 */
+	public function getFormatedTimes()
+	{
+		$times = '';
+
+		foreach($this->times as $to => $from)
+		{
+			$times .= $to.' = '.$from.',';	
+		}
+
+		return rtrim($times, ',');
+	}
+
+	/**
 	 * Sets the value of Times
 	 *
-	 * @param Times $Times the explicit times
+	 * @param Times $Times the time of the exclude
 	 *
 	 * @return Activity
 	 */
-	public function setTimes($Times)
+	public function setTimes($times)
 	{
-		$this->time = $Times;
+		// Format times,
+		$times_arr = [];
+
+		$times = explode(',', $times);
+
+		foreach($times as $time)
+		{
+			$t_bomb = explode('=', $time);
+			
+			if(count($t_bomb) > 1)
+			{	
+				$times_arr[trim($t_bomb[0])] = trim($t_bomb[1]);
+			}
+		}
+
+		$this->times = $times_arr;
 		return $this;
 	}
 }

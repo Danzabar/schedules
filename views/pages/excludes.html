@@ -5,4 +5,24 @@
 
 {% block content %}
 
-{% block endblock %}
+{% import "components/components.html" as component %}
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">Excludes</h3>
+			</div>
+			<div class="panel-body">
+				<p>Below are your excludes associated with the {{ schedule.name }} schedule.</p>
+			</div>
+			{% include "components/excludes.html" %}
+		</div>
+	</div>
+	<div class="col-md-4">
+		{{ component.sideBarLinkBox('Add Exclude', 'fa-exclamation', 'Create a new exclude', Route('page.addExcludes', {'id': schedule.id}), 'blue') }}
+		{{ component.sideBarLinkBox('Need Help?', 'fa-question', 'Take a look at the docs for the best ways to use this', Route('page.docs'), 'black') }}
+	</div>
+</div>
+
+{% endblock %}

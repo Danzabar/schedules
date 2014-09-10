@@ -1,0 +1,24 @@
+{% import "forms/forms.html" as form %}
+
+{{ form.open('post.editExcludes', {'id': exclude.id}) }}
+
+<div class="form-group">
+	{{ form.label('Label', 'label') }}
+	{{ form.input('label', exclude.label) }}
+</div>
+
+<div class="form-group">
+	{{ form.label('Day', 'day') }}
+	{{ form.daySelect('day', exclude.day) }}
+</div>
+
+<div class="form-group">
+	{{ form.label('Times', 'times') }}
+	{{ form.input('times', exclude.getFormatedTimes()) }}
+</div>
+
+<div class="form-group">
+	{{ form.submit('Edit', 'btn btn-lg btn-block btn-warning') }}
+</div>
+
+{{ form.close() }}

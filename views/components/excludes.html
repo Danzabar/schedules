@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover table-border">
+	<thead>
+		<th>Name</th>
+		<th>Day</th>
+		<th>Times</th>
+		<th>Action</th>
+	</thead>
+	<tbody>
+		{% for exclude in excludes %}
+			
+			<tr>
+				<td>{{ exclude.label }}</td>
+				<td>{{ exclude.day }}</td>
+				<td>{{ exclude.getFormatedTimes() }}</td>
+				<td>
+					<span class="btn-group">
+						<a class="btn btn-sm btn-default" href="{{ Route('page.editExcludes', {'id': exclude.id}) }}"><i class="fa fa-pencil"></i> Edit</a>
+						<a class="btn btn-sm btn-danger" href="{{ Route('page.deleteExcludes', {'id':exclude.id}) }}"><i class="fa fa-trash"></i> Delete</a>	
+					</span>
+				</td>
+			</tr>
+
+		{% endfor %}
+	</tbody>
+</table>

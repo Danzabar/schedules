@@ -1,0 +1,28 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}Edit {{ exclude.label }}{% endblock %}
+{% block title %}Edit exclusion{% endblock %}
+
+{% block content %}
+
+{% import "components/components.html" as component %}
+<div class="row">
+	
+	<div class="col-md-8">
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">Edit {{ exclude.label }} Exclusion</h3>
+			</div>
+			<div class="panel-body">
+				{% include "forms/editExclusion.html" %}
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		{{ component.sideBarLinkBox('Excludes', 'fa-exclamation-triangle', 'See your other exclusions for this schedule', Route('page.excludes', {'id': exclude.schedules().id}), 'red') }}
+		{{ component.sideBarLinkBox('Need Help?', 'fa-question', 'Check out the docs for user guides and customization tips!', Route('page.docs'), 'blue' ) }}
+	</div>
+</div>
+
+{% endblock %}

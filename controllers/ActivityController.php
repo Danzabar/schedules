@@ -24,7 +24,7 @@ class ActivityController
 		$activity
 			->setLabel(Input::get('label'))
 			->setHours(Input::has('hours') ? Input::get('hours') : NULL)
-			->setDay(Input::has('days') ? Input::get('days') : NULL)
+			->setDay(Input::has('day') ? Input::get('day') : NULL)
 			->setTimes(Input::has('times') ? Input::get('times') : NULL);
 
 		$errors = Validator::make($activity);
@@ -74,7 +74,7 @@ class ActivityController
 		$activity
 			->setLabel(Input::get('label'))
 			->setHours(Input::has('hours') ? Input::get('hours') : NULL)
-			->setDay(Input::has('days') ? Input::get('days') : NULL)
+			->setDay(Input::has('day') ? Input::get('day') : NULL)
 			->setTimes(Input::has('times') ? Input::get('times') : NULL);
 
 		$errors = Validator::make($activity);

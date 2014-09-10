@@ -89,6 +89,19 @@ Class PageController
 
 		return Template::make('pages/excludes', ['schedule' => $schedule, 'excludes' => $excludes]);
 	}
+
+	/**
+	 * The view for editing exlusions
+	 *
+	 * @return Template
+	 * @author Dan Cox
+	 */
+	public function editExcludes($id)
+	{
+		$exclude = DB::find('Exclusion', $id);
+
+		return Template::make('pages/editExcludes', ['exclude' => $exclude]);
+	}
 	
 	/**
 	 * Add Activities Page

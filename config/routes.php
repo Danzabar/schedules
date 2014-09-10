@@ -31,8 +31,11 @@ Route::post('post.editSchedule', '/schedule/edit/{id}', 'ScheduleController@edit
  */
 Route::get('page.excludes', '/schedule/excludes/{id}', 'PageController@excludes');
 Route::get('page.addExcludes', '/schedule/excludes/{id}/new', 'PageController@addExcludes');
+Route::get('page.deleteExcludes', '/schedule/excludes/{id}/delete', 'ExcludeController@delete');
+Route::get('page.editExcludes', '/schedule/excludes/{id}/edit', 'PageController@editExcludes');
 
 Route::post('post.addExcludes', '/schedule/excludes/{id}/new', 'ExcludeController@addExcludes');
+Route::post('post.editExcludes', '/schedule/excludes/{id}/edit', 'ExcludeController@editExcludes');
 
 /**
  * Activity Routes

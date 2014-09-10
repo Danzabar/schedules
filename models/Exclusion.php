@@ -158,6 +158,24 @@ Class Exclusion
 	}
 
 	/**
+	 * Returns the time in the format they go into the form in.
+	 *
+	 * @return Times
+	 * @author Dan Cox
+	 */
+	public function getFormatedTimes()
+	{
+		$times = '';
+
+		foreach($this->times as $to => $from)
+		{
+			$times .= $to.' = '.$from.',';	
+		}
+
+		return rtrim($times, ',');
+	}
+
+	/**
 	 * Sets the value of Times
 	 *
 	 * @param Times $Times the time of the exclude
@@ -166,7 +184,22 @@ Class Exclusion
 	 */
 	public function setTimes($times)
 	{
-		$this->times = $times;
+		// Format times,
+		$times_arr = [];
+
+		$times = explode(',', $times);
+
+		foreach($times as $time)
+		{
+			$t_bomb = explode('=', $time);
+			
+			if(count($t_bomb) > 1)
+			{	
+				$times_arr[trim($t_bomb[0])] = trim($t_bomb[1]);
+			}
+		}
+
+		$this->times = $times_arr;
 		return $this;
 	}
 }
