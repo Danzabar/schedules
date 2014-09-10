@@ -13,7 +13,9 @@
 	<div class="schedule-actions">
 		<hr />
 		<div class="btn-group">
-			<a href="#" class="btn btn-success"><i class="fa fa-exclamation-circle"></i> Add Exclusion</a>
+			<a href="{{ Route('page.addExcludes', {'id': schedule.id}) }}" class="btn btn-success">
+					<i class="fa fa-exclamation-circle"></i> Add Exclusion
+			</a>
 			<a href="{{ Route('page.addActivities', {'id': schedule.id})  }}" class="btn btn-success">
 					<i class="fa fa-plus-square"></i> Add Activity
 			</a>

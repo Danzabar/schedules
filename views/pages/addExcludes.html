@@ -1,0 +1,30 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}Add Exclusion{% endblock %}
+{% block title %}Add Exclusion{% endblock %}
+
+{% block content %}
+{% import "components/components.html" as component %}
+
+<div class="row">
+	
+	<div class="col-md-8">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Create an exclude</h3>
+			</div>
+			<div class="panel-body">
+				{% include "forms/addExclusion.html" %}
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		{{ component.sideBarLinkBox('Exclusions', 'fa-exclamation-triangle', 'View your other exclusions for this schedule', Route('page.excludes', {"id":schedule.id}), 'red') }}
+
+		{{ component.sideBarLinkBox('Need help?', 'fa-question', 'View the documentation to make the most out of this tool!', Route('page.docs'), 'black') }}
+	</div>
+	
+</div>
+
+{% endblock %}

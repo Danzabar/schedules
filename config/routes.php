@@ -29,9 +29,10 @@ Route::post('post.editSchedule', '/schedule/edit/{id}', 'ScheduleController@edit
  * Exclude Routes
  * -----------------------------------------------
  */
-Route::get('page.addExcludes', '/schedule/excludes/{id}', 'PageController@addExcludes');
+Route::get('page.excludes', '/schedule/excludes/{id}', 'PageController@excludes');
+Route::get('page.addExcludes', '/schedule/excludes/{id}/new', 'PageController@addExcludes');
 
-Route::post('post.addExcludes', '/schedule/excludes/{id}', 'ExcludeController@addExcludes');
+Route::post('post.addExcludes', '/schedule/excludes/{id}/new', 'ExcludeController@addExcludes');
 
 /**
  * Activity Routes

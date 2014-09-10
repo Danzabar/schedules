@@ -75,6 +75,20 @@ Class PageController
 		
 		return Template::make('pages/addExcludes', ['schedule' => $schedule]);
 	}
+
+	/**
+	 * View all excludes for given schedule
+	 *
+	 * @return Template
+	 * @author Dan Cox
+	 */
+	public function excludes($id)
+	{
+		$schedule = DB::find('Schedule', $id);
+		$excludes = $schedule->excludes()->slice(0);
+
+		return Template::make('pages/excludes', ['schedule' => $schedule, 'excludes' => $excludes]);
+	}
 	
 	/**
 	 * Add Activities Page
@@ -114,5 +128,5 @@ Class PageController
 		$activities = $schedule->activities()->slice(0);
 
 		return Template::make('pages/activities', ['schedule' => $schedule, 'activities' => $activities]);
-	}		
+	}	
 }

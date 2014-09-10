@@ -1,0 +1,24 @@
+{% import "forms/forms.html" as form %}
+
+{{ form.open('post.addExcludes', {'id': schedule.id}) }}
+
+<div class="form-group">
+	{{ form.label('Label', 'label') }}
+	{{ form.input('label', Input('label')) }}
+</div>
+
+<div class="form-group">
+	{{ form.label('Day', 'day') }}
+	{{ form.daySelect('day', Input('day')) }}
+</div>
+
+<div class="form-group">
+	{{ form.label('Times', 'times') }}
+	{{ form.input('times', Input('times')) }}
+</div>
+
+<div class="form-group">
+	{{ form.submit('Create', 'btn btn-lg btn-block btn-succes') }}
+</div>
+
+{{ form.close() }}
