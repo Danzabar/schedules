@@ -36,6 +36,43 @@ Class ScheduleController
 	}
 
 	/**
+	 * Generates a schedule from its attributes
+	 *
+	 * @return Redirect
+	 * @author Dan Cox
+	 */
+	public function generate($id)
+	{
+		$schedule = DB::find('Schedule', $id);
+
+		$sched_build = new Danzabar\Schedule\Schedule($schedule->name);
+
+		// Add Excludes
+		foreach($schedule->excludes()->slice(0) as $exclude)
+		{
+			$sched_build->setExcludes(array(
+				$exclude->day => $exclude->times
+			), $exclude->label);
+		}
+
+		// Add Activities
+		foreach($schedule->activities()->slice(0) as $activity)
+		{
+			$sched_build->addActivity($activity->label, $activity->hours);
+		}
+
+		$builder = $sched_build->build();
+		
+		// Save to Model
+		$schedule->setGenerated(json_decode($builder->toJSON(), true));
+		DB::save($schedule);
+
+		return Redirect::route('page.schedules')
+				->with('success', 'Generate the '.$schedule->name.' schedule')
+				->send();
+	}
+
+	/**
 	 * Edits the passed scheduleid
 	 *
 	 * @return Redirect

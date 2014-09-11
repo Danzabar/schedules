@@ -23,6 +23,11 @@
 			<a href="{{ Route('page.editSchedule', {'id': schedule.id})  }}" class="btn btn-default">
 					<i class="fa fa-pencil"></i> Edit
 			</a>
+			{% if schedule.generate is not iterable %}
+			<a class="btn btn-warning" href="{{ Route('generate', {'id': schedule.id}) }}">
+			 	<i class="fa fa-check"></i> Generate
+			</a>
+			{% endif %}
 			<a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Make Active</a>
 			<a href="{{ App('URL', 'route', ['page.deleteSchedule', {'id' : schedule.id}]) }}" class="btn btn-danger">
 					<i class="fa fa-trash-o"></i> Delete

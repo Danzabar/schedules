@@ -21,6 +21,8 @@ Route::get('page.docs', '/documentation', 'PageController@docs');
 Route::get('page.newSchedule', '/schedule/new', 'PageController@newSchedule');
 Route::get('page.editSchedule', '/schedule/edit/{id}', 'PageController@editSchedule');
 Route::get('page.deleteSchedule', '/schedule/delete/{id}', 'ScheduleController@deleteSchedule');
+Route::get('page.schedule', '/schedule/{id}', 'PageController@viewSchedule');
+Route::get('generate', '/schedule/generate/{id}', 'ScheduleController@generate');
 
 Route::post('post.newSchedule', '/schedule/new', 'ScheduleController@newSchedule');
 Route::post('post.editSchedule', '/schedule/edit/{id}', 'ScheduleController@editSchedule');

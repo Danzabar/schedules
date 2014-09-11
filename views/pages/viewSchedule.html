@@ -1,0 +1,14 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}{{ schedule.name }} Schedule{% endblock %}
+{% block title %}{{ schedule.name }} Schedule{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-12">
+		{% include "components/viewschedule.html" %}
+	</div>
+</div>
+
+{% endblock %}

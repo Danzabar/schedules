@@ -25,6 +25,19 @@ Class PageController
 
 		return Template::make('pages/home', ['schedules' => $schedules]);
 	}	
+
+	/**
+	 * View the schedule given
+	 *
+	 * @return Template
+	 * @author Dan Cox
+	 */
+	public function viewSchedule($id)
+	{
+		$schedule = DB::find('Schedule', $id);
+
+		return Template::make('pages/viewSchedule', ['schedule' => $schedule]);
+	}
 	
 	/**
 	 * Schedules page
