@@ -19,17 +19,13 @@
     <![endif]-->
   </head>
   <body>
+	
+	{% include "templates/navigation.html" %}
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-top:50px;">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="page-title pull-left">{% block pagetitle %}Schedules{% endblock %}</h2>
-				{% if App('Route', 'currentRouteName') != 'page.home' %}
-					<p style="margin-top:20px;">
-						<a href="{{ App('URL', 'route', ['page.home'])  }}" class="btn btn-default btn-lg pull-right">Home</a>
-					</p>
-				{% endif %}
-				<div class="clearfix"></div>
+				<h2>{% block pagetitle %}Schedules{% endblock %}</h2>
 				<hr />
 				{% include "components/errors.html" %}
 			</div>

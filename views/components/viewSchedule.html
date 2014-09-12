@@ -14,15 +14,18 @@
 			<th>Sunday</th>
 		</thead>
 		<tbody>
-			
-			{% for day in schedule.generated %}
+		
+			{% for time in times %}
+				
 				<tr>
-					{% for times in day %}
-						
-						
+					<td>{{ time }}</td>
+					{% for activity in schedule.generated %}
+					
+							<td>{{ attribute(activity, time) }}</td>
 
-					{% endfor %}
+					{% endfor %}	
 				</tr>
+
 			{% endfor %}
 
 		</tbody>

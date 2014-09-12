@@ -13,24 +13,28 @@
 
 	<div class="schedule-actions">
 		<hr />
-		<div class="btn-group">
-			<a href="{{ Route('page.addExcludes', {'id': schedule.id}) }}" class="btn btn-success">
-					<i class="fa fa-exclamation-circle"></i> Add Exclusion
+		<div class="action-group">
+			<a href="{{ Route('page.addExcludes', {'id': schedule.id}) }}" title="Add exclusions">
+					<i class="fa fa-exclamation-circle"></i>
 			</a>
-			<a href="{{ Route('page.addActivities', {'id': schedule.id})  }}" class="btn btn-success">
-					<i class="fa fa-plus-square"></i> Add Activity
+			<a href="{{ Route('page.addActivities', {'id': schedule.id})  }}" title="Add Activities">
+					<i class="fa fa-plus-square"></i>
 			</a>
-			<a href="{{ Route('page.editSchedule', {'id': schedule.id})  }}" class="btn btn-default">
-					<i class="fa fa-pencil"></i> Edit
+			<a href="{{ Route('page.editSchedule', {'id': schedule.id})  }}" title="Edit Schedule">
+					<i class="fa fa-pencil"></i>
 			</a>
-			{% if schedule.generate is not iterable %}
-			<a class="btn btn-warning" href="{{ Route('generate', {'id': schedule.id}) }}">
-			 	<i class="fa fa-check"></i> Generate
+			{% if schedule.generated is empty %}
+			<a title="Generate Schedule" href="{{ Route('generate', {'id': schedule.id}) }}">
+			 	<i class="fa fa-refresh"></i>
+			</a>
+			{% else %}
+			<a title="View Schedule" href="{{ Route('page.schedule', {'id': schedule.id}) }}">
+				<i class="fa fa-eye"></i>
 			</a>
 			{% endif %}
-			<a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Make Active</a>
-			<a href="{{ App('URL', 'route', ['page.deleteSchedule', {'id' : schedule.id}]) }}" class="btn btn-danger">
-					<i class="fa fa-trash-o"></i> Delete
+			<a href="#" title="Make this schedule Active"><i class="fa fa-check"></i></a>
+			<a href="{{ App('URL', 'route', ['page.deleteSchedule', {'id' : schedule.id}]) }}" title="Delete Schedule">
+					<i class="fa fa-trash-o"></i>
 			</a>
 		</div>
 	</div>

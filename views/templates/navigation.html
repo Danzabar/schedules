@@ -1,0 +1,70 @@
+{% set pages = {
+'Schedules': 'page.schedules'
+} %}
+
+{% if schedule is defined %}
+
+{% set schedulePages = {
+	(schedule.name): {
+		'View': 'page.schedule',
+		'Generate':'generate'
+	},
+	'Activities': {
+		'Add': 'page.addActivities',
+		'View': 'page.activities',
+	},
+	'Exclusions': {
+		'Add': 'page.addExcludes',
+		'View': 'page.excludes'
+}
+} %}
+
+{% endif %}
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{{ Route('page.home') }}">Schedule Manager</a>
+				</div>
+				<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+								{% for name,route in pages %}
+
+								<li {{ (route == currentRoute() ? 'class="active"' : '') }}>
+										<a href="{{ Route(route) }}">{{ name }}</a>				
+								</li>
+
+								{% endfor %}
+
+								{% if schedulePages is defined %}
+
+								{% for group,routes in schedulePages %}
+
+								<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ group }} <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+												{% for name,route in routes %}
+												<li>
+														<a href="{{ Route(route, {'id': schedule.id}) }}">{{ name }}</a>
+												</li>
+												{% endfor %}
+										</ul>
+								</li>
+
+								{% endfor %}
+
+								{% endif %}
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+								<li><a href="{{ Route('page.docs') }}">Documentation</a></li>
+						</ul>
+				</div><!--/.nav-collapse -->
+		</div>
+</div>
+

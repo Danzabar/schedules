@@ -68,7 +68,7 @@ Class ScheduleController
 		DB::save($schedule);
 
 		return Redirect::route('page.schedules')
-				->with('success', 'Generate the '.$schedule->name.' schedule')
+				->with('success', 'Generated the '.$schedule->name.' schedule')
 				->send();
 	}
 

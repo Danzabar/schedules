@@ -80,6 +80,7 @@ Class Twig_Engine implements EngineInterface
 		$this->twig->addFunction($this->_function_App());
 		$this->twig->addFunction($this->_function_Route());
 		$this->twig->addFunction($this->_function_Input());
+		$this->twig->addFunction($this->_function_CurrentRoute());
 	}
 
 	/**
@@ -126,6 +127,20 @@ Class Twig_Engine implements EngineInterface
 		return new \Twig_SimpleFunction('Input', function($key)
 		{
 			return Input::old($key);
+		});
+	}
+
+	/**
+	 * Gets the current route name
+	 *
+	 * @return SimpleFunction
+	 * @author Dan Cox
+	 */
+	private function _function_CurrentRoute()
+	{
+		return new \Twig_SimpleFunction('currentRoute', function()
+		{
+			return Route::currentRouteName();
 		});
 	}
 }
