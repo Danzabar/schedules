@@ -9,7 +9,7 @@ define('DEBUG', 		TRUE);
 
 define('BASE_DIR',		dirname(__DIR__));
 
-define('SECRET_KEY', 	'KLJLKJDSUJHKJDS*DU(*Y#@@');
+define('SECRET_KEY', 	'');
 
 if(isset($_SERVER['HTTP_HOST']))
 {
