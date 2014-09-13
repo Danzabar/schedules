@@ -1,5 +1,5 @@
 {
-	"name":"Schedule Keeper",
+	"name":"Danzabar/Schedule-Platform",
 	"description":"Uses various packages to create a schedule keeper webplatform that you can generate and keep track of schedules with.",
 	"require": {
 		"danzabar/schedule": "dev-master",
