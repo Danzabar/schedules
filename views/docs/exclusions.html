@@ -1,0 +1,21 @@
+{% extends "templates/doc.html" %}
+
+{% block pagetitle %}
+	<h2>Exclusions</h2>
+	<hr />
+{% endblock %}
+
+{% block content %}
+
+<p>Exclusions are times when you are unable to do activities, for example sleeping or working are exclusions, it just tells the schedule builder that you dont have these times to spare.</p>
+
+<h3>Adding exclusion times</h3>
+
+<p>On the add exclusions form you will see it expects you to pick a day, for example, Everyday, Weekday, Weekend etc. Pick a day and enter the time in time ranges.</p>
+
+<h3>Time Ranges</h3>
+
+<p>A time range is signified by the <code>=</code> symbol, for example <code>14:00 = 17:00</code> you can seperate multiple time ranges with commas.</p>
+
+
+{% endblock %}

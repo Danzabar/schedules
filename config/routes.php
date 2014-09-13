@@ -11,7 +11,8 @@
 Route::get('page.home', '/', 'PageController@home');
 Route::get('page.schedules', '/schedules', 'PageController@schedules');
 Route::get('page.docs', '/documentation', 'DocsController@docs');
-Route::get('page.docPage', '/documentation/{page}', 'DocsController@docPage');
+Route::get('page.docPage', '/documentation/page/{page}', 'DocsController@docPage');
+Route::get('page.contributors', '/documentation/contributors', 'DocsController@contributors');
 
 /**
  * Schedule Interaction Routes

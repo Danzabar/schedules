@@ -1,0 +1,20 @@
+{% extends "templates/doc.html" %}
+
+{% block pagetitle %}
+	<h2>Activities</h2>
+	<hr />
+{% endblock %}
+
+{% block content %}
+	
+<p>Activities are the base of this system, they are flexible and allow you to either provide an explicit date and time yourself, or select hours and let the schedule builder pick your times.</p>
+
+<h3>Creating an activity</h3>
+
+<p>To create the activity you must provide a name to label it and either an amount in hours of time or an explicitly set day and time combination.</p>
+
+<h3>Time Ranges</h3>
+
+<p>A time range is signified by the <code>=</code> symbol, for example <code>14:00 = 17:00</code> you can seperate multiple time ranges with commas.</p>
+
+{% endblock %}

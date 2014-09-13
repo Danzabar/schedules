@@ -22,7 +22,7 @@
 		</div>
 		<div class="col-md-4">
 			{{ components.sideBarLinkBox('Create Activities', 'fa-pencil', 'Create more activities', Route('page.addActivities', {'id':schedule.id}), 'green')}}
-			{{ components.sideBarLinkBox('Like This Tool?', 'fa-git', 'This software is open source, make it better by contributing.', '#', 'black') }}
+			{{ components.sideBarLinkBox('Like This Tool?', 'fa-git', 'This software is open source, make it better by contributing.', Route('page.docPage', {'page': 'contribute'}), 'black') }}
 		</div>
 	</div>
 

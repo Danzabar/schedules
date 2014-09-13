@@ -1,0 +1,27 @@
+{% extends "templates/doc.html" %}
+
+
+{% block pagetitle %}{% endblock %}
+
+{% block content %}
+
+{% autoescape false %}
+{{ contributors }}
+{% endautoescape %}
+
+<hr />
+
+<h3>Packages</h3>
+
+<p>See composer.json for more information.</p>
+
+<ul>
+	<li>Symfony - <a href="http://symfony.com/doc/current/components/index.html">Documentation</a></li>
+	<li>Doctrine - <a href="http://doctrine-orm.readthedocs.org/en/latest/">Documentation</a></li>
+	<li>Schedule Builder - <a href="http://valeska.co.uk/code/schedule">Documentation</a></li>
+	<li>Twig - <a href="http://twig.sensiolabs.org/documentation">Documentation</a></li>
+	<li>Aura/Router - <a href="https://github.com/auraphp/Aura.Router">Documentation</a></li>
+</ul>
+
+<p>If you are contributing and adding new packages, please add them to this list.</p>
+{% endblock %}

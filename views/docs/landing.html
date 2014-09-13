@@ -11,8 +11,7 @@
 <ul>
 	<li>Go to the <code>config/database.php</code> file and enter your database details </li>
 	<li>Go to the <code>config/server.php</code> file and enter a secret key</li>
-	<li><code>composer update</code> - to make sure you have the latest package versions.</li>
-	<li><code>php vendor/bin/doctrine orm:schema-tools:create</code> - Run on command line.</li>
+	<li><code>php vendor/bin/doctrine orm:schema-tool:create</code> - Run on command line.</li>
 </ul>
 
 <p>Now you are ready to use the schedule platform, have a look at our guides to make the most out of this tool.</p>
@@ -23,7 +22,7 @@
 
 <ul>
 	<li><code>composer update</code> - grab the latest files from composer</li>
-	<li><code>php vendor/bin/doctrine orm:schema-tools:update</code> - update the orm incase of any database changes</li>
+	<li><code>php vendor/bin/doctrine orm:schema-tool:update</code> - update the orm incase of any database changes</li>
 </ul>
 
 {% endblock %}

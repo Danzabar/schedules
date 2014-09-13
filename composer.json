@@ -1,9 +1,18 @@
 {
 	"name":"danzabar/schedule-platform",
 	"description":"Uses various packages to create a schedule keeper webplatform that you can generate and keep track of schedules with.",
+	"license": "MIT",
+	"authors": [
+		{
+		"name": "Daniel Cox",
+		"email": "danzabian@gmail.com",
+		"homepage": "http://www.valeska.co.uk"
+		}
+	],
 	"require": {
 		"danzabar/schedule": "dev-master",
 		"symfony/templating": "2.6.*@dev",
+		"michelf/php-markdown": "1.4.1",
 		"symfony/finder": "2.6.*@dev",
 		"mockery/mockery": "dev-master",
 		"symfony/http-foundation": "2.6.*@dev",
