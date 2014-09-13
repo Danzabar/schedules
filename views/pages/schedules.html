@@ -43,14 +43,9 @@
 			</div>
 
 			<div class="col-md-4">
-					
-				<div class="sidebar-component">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-search"></i></div>
-						<input type="text" name="search" id="search" class="search-bar form-control" placeholder="Search by schedule name" />
-					</div>
-				</div>
 				
+				{% include "forms/search.html" %}
+
 				{{ component.sideBarLinkBox('Create Schedule', 'fa-pencil', 'Create a new work schedule to make the most of your time', Route('page.newSchedule'), 'red')  }}
 
 				{{ component.sideBarLinkBox('Need Help?', 'fa-question-circle', 'Take a quick look at the docs to get the most out of this tool, it also contains information about custom options.', Route('page.docs'), 'black')  }}

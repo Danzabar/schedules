@@ -1,0 +1,16 @@
+{% import "forms/forms.html" as form %}
+
+
+{{ form.open('post.search') }}
+
+<div class="form-group">
+	<div class="input-group">
+		<span class="input-group-addon"><i class="fa fa-search"></i></span>
+		{{ form.input('term', Input('term')) }}
+		<span class="input-group-btn">
+			{{ form.submit('Search', 'btn btn-info') }}			
+		</span>
+	</div><!-- /input-group -->
+</div>
+
+{{ form.close() }}

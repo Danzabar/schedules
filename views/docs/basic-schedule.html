@@ -1,0 +1,20 @@
+{% extends "templates/doc.html" %}
+
+{% block pagetitle %}
+	<h2>Creating a new schedule</h2>
+	<hr />
+{% endblock %}
+
+{% block content %}
+	
+<p>Creating a schedule is obviously the first step, you need to provide it with a name, although this is only really for your benefit, you could also give it a description, both name and description are used in the search form on the schedules page so you will be able to find the schedules you made with keywords from either.</p>
+
+<p>A schedule has a few actions that make it useful:</p>
+
+<ul>
+	<li><b>Create exclusions</b> - Exclusions are points that are not activities but still take your time, for example sleeping. Theres more about these on the exclusions guide.</li>
+	<li><b>Create Activities</b> - These are the main part of schedules, every schedule needs to have activities otherwise they are pointless.</li>
+	<li><b>Generate schedule</b> - This function allows you to generate a full week schedule based on the information you gave regarding exclusions and activities, the generation is totally random however it will prefer to block up activities where possible, If you generated a schedule and didnt like the outcome, you could just regenerate it using the same process.</li>
+</ul>
+
+{% endblock %}

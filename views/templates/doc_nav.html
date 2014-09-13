@@ -1,0 +1,22 @@
+{% set pages = {
+	'Guides':{
+		'Creating a basic schedule': 'basic-schedule',
+		'Exclusions': 'exclusions',
+		'Activities': 'activities'
+	}
+} %}
+
+<ul class="nav nav-sidebar">
+	<li><a href="{{ Route('page.docs') }}">Introduction</a></li>
+</ul>
+
+<hr />
+
+{% for group,routes in pages %}
+<h4>{{ group }}</h4>
+<ul class="nav nav-sidebar">
+	{% for name,route in routes %}
+	<li><a href="{{ Route('page.docPage', {'page': route}) }}">{{ name }}</a></li>
+	{% endfor %}
+</ul>
+{% endfor %}

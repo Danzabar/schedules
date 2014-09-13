@@ -1,0 +1,29 @@
+{% extends "templates/doc.html" %}
+
+{% block content %}
+	
+<p>This tool helps you keep track of schedules and generate on the fly schedules with flexibility and full control, it allows you to specify the amount of hours you wish to spend on an activity and builds you a full schedule around this.</p>
+
+<h3>Quick Start</h3>
+
+<p>There are a few things you need to do to ensure that this has been installed correctly and ready for use;</p>
+
+<ul>
+	<li>Go to the <code>config/database.php</code> file and enter your database details </li>
+	<li>Go to the <code>config/server.php</code> file and enter a secret key</li>
+	<li><code>composer update</code> - to make sure you have the latest package versions.</li>
+	<li><code>php vendor/bin/doctrine orm:schema-tools:create</code> - Run on command line.</li>
+</ul>
+
+<p>Now you are ready to use the schedule platform, have a look at our guides to make the most out of this tool.</p>
+
+<h3>Updating</h3>
+
+<p>To make sure you have the latest version or after an update you can use the following proceedure to get to the latest version</p>
+
+<ul>
+	<li><code>composer update</code> - grab the latest files from composer</li>
+	<li><code>php vendor/bin/doctrine orm:schema-tools:update</code> - update the orm incase of any database changes</li>
+</ul>
+
+{% endblock %}

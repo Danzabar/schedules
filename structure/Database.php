@@ -116,6 +116,27 @@ Class Database
 	}
 
 	/**
+	 * Search for params using methods that findBy cannot.
+	 *
+	 * @return void
+	 * @author Dan Cox
+	 */
+	public static function search($entity, $callback)
+	{
+		$builder = static::$entityManager->createQueryBuilder();
+
+		$builder->select('u')
+				->from($entity, 'u');
+
+		// Fire user callback with builder
+		call_user_func_array($callback, array($builder));
+
+		$query = $builder->getQuery();
+	
+		return $query->execute();
+	}	
+
+	/**
 	 * Find one by, returns single entity based on parameters.
 	 *
 	 * @param $entity string

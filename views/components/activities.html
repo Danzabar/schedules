@@ -10,7 +10,7 @@
 			<tr>
 				<td>{{ activity.label }}</td>
 				<td>{{ activity.hours }}</td>
-				<td></td>
+				<td>{{ activity.day }} {{ activity.getFormatedTimes()  }}</td>
 				<td>
 					<span class="btn-group">
 						<a class="btn btn-sm btn-danger" href="{{ Route('page.deleteActivities', {'id':activity.id}) }}"><i class="fa fa-trash"></i> Delete</a>

@@ -5,7 +5,7 @@
 {% import "components/components.html" as component %}
 <div class="row">
 
-	<div class="col-md-3">
+	<div class="col-md-6">
 		{% if(schedules > 0) %}
 			{% set content = 'You currently have ' ~ schedules ~' available to use' %}
 		{% else %}
@@ -19,9 +19,6 @@
 		{{ component.linkBox('Create a new Schedule', 'fa-pencil', 'Create a new schedule and keep track of your progress', Route('page.newSchedule'), 'yellow')  }}
 	</div>
 
-	<div class="col-md-6">
-		{{ component.linkBox('Active Schedule', 'fa-check-circle', 'You havent set an active schedule yet, making a schedule active will tell you what you should be doing currently.', '') }}
-	</div>
 
 </div>
 

@@ -10,8 +10,8 @@
  */
 Route::get('page.home', '/', 'PageController@home');
 Route::get('page.schedules', '/schedules', 'PageController@schedules');
-Route::get('page.docs', '/documentation', 'PageController@docs');
-
+Route::get('page.docs', '/documentation', 'DocsController@docs');
+Route::get('page.docPage', '/documentation/{page}', 'DocsController@docPage');
 
 /**
  * Schedule Interaction Routes
@@ -26,6 +26,7 @@ Route::get('generate', '/schedule/generate/{id}', 'ScheduleController@generate')
 
 Route::post('post.newSchedule', '/schedule/new', 'ScheduleController@newSchedule');
 Route::post('post.editSchedule', '/schedule/edit/{id}', 'ScheduleController@editSchedule');
+Route::post('post.search', '/schedule/search', 'ScheduleController@search');
 
 /**
  * Exclude Routes

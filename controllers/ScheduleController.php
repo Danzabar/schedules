@@ -36,6 +36,26 @@ Class ScheduleController
 	}
 
 	/**
+	 * Searches for a schedule base on name and description
+	 *
+	 * @return Template
+	 * @author Dan Cox
+	 */
+	public function search()
+	{
+		$search = Input::get('term');
+
+		$schedules = DB::search('Schedule', function($builder) use ($search)
+		{
+			$builder->where('u.name LIKE :search');
+			$builder->orWhere('u.description LIKE :search');
+			$builder->setParameter('search', '%'.$search.'%');
+		});
+		
+		return Template::make('pages/results', ['schedules' => $schedules, 'search' => $search]);
+	}
+
+	/**
 	 * Generates a schedule from its attributes
 	 *
 	 * @return Redirect
@@ -58,7 +78,18 @@ Class ScheduleController
 		// Add Activities
 		foreach($schedule->activities()->slice(0) as $activity)
 		{
-			$sched_build->addActivity($activity->label, $activity->hours);
+			if(!empty($activity->times))
+			{
+				$sched_build->addActivity(
+						$activity->label, 
+						($activity->hours > 0 ? $activity->hours : NULL), 
+						array(
+							$activity->day => $activity->times
+				));
+			}
+			else {
+				$sched_build->addActivity($activity->label, $activity->hours);
+			}
 		}
 
 		$builder = $sched_build->build();
@@ -67,7 +98,7 @@ Class ScheduleController
 		$schedule->setGenerated(json_decode($builder->toJSON(), true));
 		DB::save($schedule);
 
-		return Redirect::route('page.schedules')
+		return Redirect::route('page.schedule', ['id' => $id])
 				->with('success', 'Generated the '.$schedule->name.' schedule')
 				->send();
 	}

@@ -1,0 +1,35 @@
+{% extends "templates/default.html" %}
+
+{% block pagetitle %}Search results: {{ search }}{% endblock %}
+{% block title %}Search results{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	
+	<div class="col-md-8">
+		{% if schedules|length > 0 %}
+		
+			<div class="info-wrapper">
+				<div class="list-group">
+				{% for schedule in schedules %}
+				
+					{% include "components/schedule.html" %}
+
+				{% endfor %}
+				</div>
+			</div>
+
+		{% else %}
+			
+			<p>There were no results for the search term {{ search }}</p>
+
+		{% endif %}
+	</div>
+
+	<div class="col-md-4">
+		{% include "forms/search.html" %}
+	</div>
+</div>
+
+{% endblock %}
